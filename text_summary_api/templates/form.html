@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Summary</title>
+</head>
+<body>
+
+    <form method="POST">
+        {% csrf_token %}
+        <!--<p>The Id is <strong>{{ id }}</strong></p>-->
+        <!--<p>The description is <strong>{{ fullDescription }}</strong></p>-->
+        {% for item in news %}
+            <p><strong>ID</strong></p>
+            {{ item.0 }}
+            <p><strong>Summary</strong></p>
+            {{ item.1 }}
+            <!--<p><strong>Description</strong></p>-->
+            <!--{{ item.2 }}-->
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
