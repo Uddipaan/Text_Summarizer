@@ -7,6 +7,7 @@ The API endpoint is : http://127.0.0.1:8000/text_summarizer/summary.
 
 It is ideal if you create a virtual environment for the project.
 
-Steps:
+Steps(Run these commands in sequence):
 1. pip install -r requirements.txt
 2. python manage.py runserver 
+3. python -m spacy download en
