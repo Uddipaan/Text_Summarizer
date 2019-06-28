@@ -13,7 +13,9 @@ def conv(tup, di):
 
 
 def summary(request):
-    response = requests.get('http://159.65.156.192/api/v1/news')
+    url = 'http://159.65.156.192/api/v1/news'
+    headers = {'Authorization': 'insert_token_here'}
+    response = requests.get(url, headers)
     news = response.json()
     id_news_item = []
     desc = []
