@@ -13,9 +13,18 @@ def conv(tup, di):
 
 
 def summary(request):
+    url1 = 'http://159.65.156.192/api/v1/phone/login'
+    header1 = {'Content-Type': 'application/x-www-form-urlencoded'}
+    body1 = {'phone': '9706208886', 'deviceToken': 'adfsgfdgsfaafsf'}
+    response1 = requests.post(url1, headers=header1, data=body1)
+    rs = response1.json()
+
+    test = rs['data']
+    token = test.get('token')
+
     url = 'http://159.65.156.192/api/v1/news'
-    headers = {'Authorization': 'insert_token_here'}
-    response = requests.get(url, headers)
+    header = {'Authorization': 'JWT ' + token}
+    response = requests.get(url, headers=header)
     news = response.json()
     id_news_item = []
     desc = []
