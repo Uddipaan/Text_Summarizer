@@ -70,5 +70,7 @@ def summarizer(url):
     for sentence in best_sentences:
         t.append(sentence)
 
-    return t
+    x = str(t)[1:-1]
+    
+    return x
 
