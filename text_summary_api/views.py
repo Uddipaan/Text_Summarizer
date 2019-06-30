@@ -6,9 +6,8 @@ from . text_service import *
 # Create your views here.
 
 
-def conv(tup, di):
-    for a, b in tup:
-        di.setdefault(a, []).append(b)
+def Convert(tup, di):
+    di = dict(tup)
     return di
 
 
@@ -40,13 +39,16 @@ def summary(request):
 
     # z = list(zip(id_news_item, res, desc))
     z = list(zip(id_news_item, res))
+    dictionary = {}
+    test = Convert(z, dictionary)
     # d = {}
     # d = conv(z, d)
     # str1 = str(d).replace("\'", "\"")
     # parsed = json.loads(str1)
     # json_str = json.dumps(parsed, sort_keys=True)
 
-    return JsonResponse(str(z), safe=False)
+    # return JsonResponse(str(z), safe=False, json_dumps_params={'ensure_ascii': False})
+    return JsonResponse(test, safe=False, json_dumps_params={'ensure_ascii': False})
 
     # return render(request, 'form.html', {
     #                 'news': z
